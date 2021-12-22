@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+Personal Area
+{% endblock %}
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style4.css') }}"/>
+{% endblock %}
+
+
+
+{% block nav %}
+
+    <div class="border-radius animate__animated animate__fadeInLeft">
+        <span>
+{{ current_user.first_name.capitalize() + " " + current_user.last_name.capitalize() }}
+        </span>
+    </div>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+{% endblock %}

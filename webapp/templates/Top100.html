@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+{% endblock %}
+
+{% block title %}
+Top 100 Movies
+{% endblock %}
+
+{% block nav %}
+<div class="border-radius animate__animated animate__fadeInLeft">
+    <span>
+Top 100
+    </span>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<section>
+
+{% for movie in top_movies %}
+
+<div class="container" style="color: white;">
+    <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 col-tn-12 movie-div">
+            <img class="movie-img" src="{{ movie.photo_link }}" alt="">
+            <h4 class="movie-description" id="movie-title">{{ movie.title }}</h4>
+            <h5 class="movie-description" id="movie-genre">{{ movie.genre }}</h5>
+            <p class="movie-description">{{ movie.description }}</p>
+            <h6 class="movie-description" id="movie-year">Year: {{ movie.year }}</h6>
+            <h6 class="movie-description" id="movie-rate">
+                Meta Score: {{ movie.meta_score }}
+                <br>
+                IMDb Rate: {{ movie.imdb_rate }}
+            </h6>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+</section>
+
+{% endblock %}
+
+

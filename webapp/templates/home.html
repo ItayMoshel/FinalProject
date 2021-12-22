@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}"/>
+{% endblock %}
+{% block title %}Home{% endblock %}
+{% block nav %}
+    <div class="home-bar border-radius animate__animated animate__fadeInDown">
+        <span>A-Z</span>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<section class="sec1">
+    <div class="con-1">
+        <h3 class="head-1">Crime</h3>
+        <div class="one">
+        {% for item in random.choices(crime, k=6) %}
+            <img class="img-1" src="{{ item }}" alt=""><br>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="con-1">
+        <h3 class="head-1">Drama</h3>
+        <div class="one">
+        {% for item in random.choices(drama, k=6) %}
+            <img class="img-1" src="{{ item }}" alt=""><br>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="con-1">
+        <h3 class="head-1">Action</h3>
+        <div class="one">
+        {% for item in random.choices(action, k=6) %}
+            <img class="img-1" src="{{ item }}" alt=""><br>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="con-1">
+        <h3 class="head-1">Thriller</h3>
+        <div class="one">
+        {% for item in random.choices(thriller, k=6) %}
+            <img class="img-1" src="{{ item }}" alt=""><br>
+        {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+<div class="container">
+
+    <h1 class="hdline-1">All Movies</h1>
+
+<section class="sec2">
+{% for movie in top_movies %}
+        <div class="container2">
+            <img class="movie-img" src="{{ movie.photo_link }}" alt="">
+        </div>
+{% endfor %}
+{% for movie in upcoming %}
+
+<div>
+    <div>
+        <div class="container2">
+            <img class="movie-img" src="{{ movie.photo_link }}" alt="">
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+</section>
+</div>
+
+{% endblock %}

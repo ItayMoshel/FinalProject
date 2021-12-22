@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block title %}
+Results
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}"/>
+{% endblock %}
+
+{% block nav %}
+Search
+{% endblock %}
+
+{% block content %}
+
+<section>
+
+
+
+{% for item in top %}
+{% if user_input in item.title %}
+
+<div class="container1" style="color: white;">
+    <div class="justify-content-center">
+        <div class="movie-div">
+            <div>
+                <img class="movie-img" src="{{ item.photo_link }}" alt="">
+            </div>
+            <h4 class="movie-description" id="movie-title">{{ item.title }}</h4>
+            <h6 class="movie-description" id="movie-dir">{{ item.director }}</h6>
+            <h6 class="movie-description" id="movie-rate">IMDb Rating - {{ item.imdb_rate }}</h6>
+            <p class="movie-description" id="movie-des">{{ item.description }}</p>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endfor %}
+
+
+{% for item in up %}
+{% if user_input in item.title %}
+
+<div class="container1" style="color: white;">
+    <div class="justify-content-center">
+        <div class="movie-div">
+            <img class="movie-img" src="{{ item.photo_link }}" alt="">
+            <h4 class="movie-description" id="movie-title">{{ item.title }}</h4>
+            <h6 class="movie-description" id="movie-dir">{{ item.director }}</h6>
+            <p class="movie-description" id="movie-des">{{ item.description }}</p>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endfor %}
+
+
+
+{% for item in top_dir %}
+{% if user_input in item.director %}
+
+<div class="container1" style="color: white;">
+    <div class="justify-content-center">
+        <div class="movie-div">
+            <img class="movie-img" src="{{ item.photo_link }}" alt="">
+            <h4 class="movie-description" id="movie-title">{{ item.title }}</h4>
+            <h6 class="movie-description" id="movie-dir">{{ item.director }}</h6>
+            <h6 class="movie-description" id="movie-rate">IMDb Rating - {{ item.imdb_rate }}</h6>
+            <p class="movie-description" id="movie-des">{{ item.description }}</p>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endfor %}
+
+
+
+
+{% for item in up_dir %}
+{% if user_input in item.director %}
+
+<div class="container1" style="color: white;">
+    <div class="justify-content-center">
+        <div class="movie-div">
+            <img class="movie-img" src="{{ item.photo_link }}" alt="">
+            <h4 class="movie-description" id="movie-title">{{ item.title }}</h4>
+            <h6 class="movie-description" id="movie-dir">{{ item.director }}</h6>
+            <h5 class="movie-description" id="movie-des">{{ item.description }}</h5>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endfor %}
+
+
+{% for item in top_genre %}
+{% if user_input in item.genre.split(", ") %}
+
+
+<div class="container1" style="color: white;">
+    <div class="justify-content-center">
+        <div class="movie-div">
+            <img class="movie-img" src="{{ item.photo_link }}" alt="">
+            <h4 class="movie-description" id="movie-title">{{ item.title }}</h4>
+            <h6 class="movie-description" id="movie-dir">{{ item.director }}</h6>
+            <h6 class="movie-description" id="movie-rate">IMDb Rating - {{ item.imdb_rate }}</h6>
+            <h5 class="movie-description" id="movie-des">{{ item.description }}</h5>
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+{% endfor %}
+
+
+{% for item in up_genre %}
+{% if user_input in item.genre %}
+
+
+<div class="container1" style="color: white;">
+    <div class="justify-content-center">
+        <div class="movie-div">
+            <img class="movie-img" src="{{ item.photo_link }}" alt="">
+            <h4 class="movie-description" id="movie-title">{{ item.title }}</h4>
+            <h6 class="movie-description" id="movie-dir">{{ item.director }}</h6>
+            <h5 class="movie-description" id="movie-des">{{ item.description }}</h5>
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+{% endfor %}
+    
+</section>
+
+{% endblock %}

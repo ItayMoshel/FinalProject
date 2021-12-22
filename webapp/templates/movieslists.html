@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Personal{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}"/>
+{% endblock %}
+{% block nav %}Lists{% endblock %}
+{% block content %}
+<div class="container text-center mt-5">
+    <form method="POST">
+        <h3 align="center">Add To list</h3>
+        <div class="form-group">
+            <label for="title">Movie Title</label>
+            <input type="text" class="form-control" name="title" placeholder="Enter title">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{% endblock %}
